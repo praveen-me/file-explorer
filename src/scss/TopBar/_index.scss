@@ -1,0 +1,11 @@
+.topbar {
+	display: flex;
+	padding: $padding-normal * 2 $padding-normal * 4;
+	justify-content: space-between;
+	align-items: center;
+
+	&__left-section {
+		display: flex;
+		align-items: center;
+	}
+}
