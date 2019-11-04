@@ -1,0 +1,41 @@
+.sidebar {
+  background: $light-bg-v1;
+  font-family: $font;
+
+  &__header {
+    padding: $padding-normal ($padding-normal * 2);
+    color: $light-color-v1;
+    size: $size-small-v1;
+  }
+
+  &__list-item,
+  &__list_sublist-item {
+    display: flex;
+    align-items: center;
+    padding: $padding-normal ($padding-normal * 2);
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    &_title {
+      color: $dark-color-v1;
+    }
+
+    &--active {
+      background: $light-bg-v2;
+    }
+
+    &--expand {
+      width: 100%;
+      padding: 0 0 $padding-normal 0;
+    }
+  }
+
+  &__list_sublist {
+    width: 100%;
+
+    &-item {
+      color: $dark-color-v2;
+      border-left: 2px solid $light-bg-v2;
+    }
+  }
+}

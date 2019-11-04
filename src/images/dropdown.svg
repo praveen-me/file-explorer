@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>icons/functional/dropdown</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M8.74739303,9 L15.252607,9 C15.4735209,9 15.652607,9.1790861 15.652607,9.40000001 C15.652607,9.47896791 15.629233,9.55616903 15.5854305,9.62187497 L12.3328235,14.5009481 C12.2102854,14.6847614 11.9619384,14.7344348 11.778125,14.6118966 C11.7341802,14.5826011 11.696472,14.5448929 11.6671765,14.5009481 L8.41456949,9.62187497 C8.29203134,9.4380616 8.3417047,9.18971463 8.52551807,9.06717647 C8.591224,9.02337397 8.66842513,9 8.74739303,9 Z" id="path-1"></path>
+    </defs>
+    <g id="icons/functional/dropdown" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Page-1" fill="#000000" xlink:href="#path-1"></use>
+        <g id="colors/grey-regular" mask="url(#mask-2)" fill="#535B62">
+            <rect id="Rectangle-12" x="0" y="0" width="24" height="24"></rect>
+        </g>
+    </g>
+</svg>
