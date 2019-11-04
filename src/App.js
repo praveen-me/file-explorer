@@ -1,9 +1,13 @@
-import React from 'react';
-import SideBar from './components/SideBar';
+import React from "react";
+import SideBar from "./components/SideBar";
+import MainPanel from "./components/MainPanel";
 
 function App() {
   return (
-    <SideBar />
+    <>
+      <SideBar />
+      <MainPanel />
+    </>
   );
 }
 
