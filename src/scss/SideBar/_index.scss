@@ -39,3 +39,11 @@
     }
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .sidebar {
+    &__list_sublist-item {
+      padding: $padding-normal;
+    }
+  }
+}
