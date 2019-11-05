@@ -1,4 +1,5 @@
 import INIT_DATA from "./../../dummy-data.json";
+import { UPDATE_CURRENT_PATH } from "../types.js";
 const INIT_SLUG = "root";
 
 const initState = {
@@ -8,6 +9,15 @@ const initState = {
 
 const rootReducer = (state = initState, action) => {
   switch (action.type) {
+    case UPDATE_CURRENT_PATH: {
+      const { payload } = action;
+
+      return {
+        ...state,
+        currentPath: `${state.currentPath}/${payload.newPathPart}`
+      };
+    }
+
     default:
       return state;
   }

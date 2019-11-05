@@ -1,12 +1,19 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
+import { useDispatch } from "react-redux";
 import * as File from "./../../images/file.png";
 import * as Folder from "./../../images/folder.png";
+import { updatePath } from "../../store/actions/common.actions";
 
-const FilePanelItem = ({ type, title }) => {
+const FilePanelItem = ({ type, title, slug }) => {
+  const dispatch = useDispatch();
+
   const Img = <img src={type === "file" ? File : Folder} alt={type} />;
 
   const handleDirectoryClick = () => {
+    if (slug) {
+      dispatch(updatePath(slug));
+    }
     return;
   };
 
