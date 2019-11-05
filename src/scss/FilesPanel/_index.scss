@@ -1,0 +1,54 @@
+.files-panel {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-gap: 1rem;
+	padding: $padding-normal * 2;
+	font-family: $font;
+
+	&__item {
+		color: #000;
+		text-decoration: none;
+		justify-self: center;
+		align-self: center;
+		padding: $margin-normal;
+		text-align: center;
+		border-radius: 5px;
+
+		&-extension {
+			position: relative;
+
+			&-name {
+				position: absolute;
+				bottom: 10px;
+				font-size: $size-small-v1;
+				left: 10px * 2;
+				color: #fff;
+			}
+		}
+
+		&-title {
+			color: $dark-color-v2;
+			margin: $margin-normal / 2 0;
+		}
+	}
+
+	&__item.folder {
+		align-self: stretch;
+		display: grid;
+		align-items: center;
+
+		p {
+			align-self: end;
+		}
+
+		&:hover {
+			background: #00c4ff1f;
+		}
+	}
+
+	&__item.file {
+		&:hover {
+			background: #ffe00059;
+		}
+	}
+}
