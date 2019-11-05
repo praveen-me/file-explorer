@@ -2,14 +2,14 @@
 	"name": "Root",
 	"slug": "root",
 	"type": "folder",
-	"childrens": [
+	"children": [
 		{
 			"name": "Apps",
 			"slug": "apps",
 			"type": "folder",
 			"author": "Praveen",
 			"createAt": "5 Nov, 2019",
-			"childrens": []
+			"children": []
 		},
 		{
 			"name": "Pictures",
@@ -17,7 +17,7 @@
 			"type": "folder",
 			"author": "Praveen",
 			"createAt": "5 Nov, 2019",
-			"childrens": []
+			"children": []
 		},
 		{
 			"name": "Videos",
@@ -25,7 +25,7 @@
 			"type": "folder",
 			"author": "Praveen",
 			"createAt": "5 Nov, 2019",
-			"childrens": []
+			"children": []
 		},
 		{
 			"name": "Documents",
@@ -33,14 +33,14 @@
 			"type": "folder",
 			"author": "Praveen",
 			"createAt": "5 Nov, 2019",
-			"childrens": [
+			"children": [
 				{
 					"name": "Work",
 					"slug": "work",
 					"type": "folder",
 					"author": "Praveen",
 					"createAt": "5 Nov, 2019",
-					"childrens": [
+					"children": [
 						{
 							"name": "e.pdf",
 							"type": "file",
