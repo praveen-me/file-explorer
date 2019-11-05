@@ -5,11 +5,10 @@ import MainPanel from "./components/MainPanel";
 
 function App() {
   const data = useSelector(state => state);
-  console.log(data);
   return (
     <>
-      <SideBar data={data} />
-      <MainPanel />
+      <SideBar data={data.explorer} />
+      <MainPanel data={data} />
     </>
   );
 }

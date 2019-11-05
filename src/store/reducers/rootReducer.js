@@ -1,6 +1,10 @@
 import INIT_DATA from "./../../dummy-data.json";
+const INIT_SLUG = "root";
 
-const initState = INIT_DATA;
+const initState = {
+  explorer: INIT_DATA,
+  currentPath: INIT_SLUG
+};
 
 const rootReducer = (state = initState, action) => {
   switch (action.type) {
