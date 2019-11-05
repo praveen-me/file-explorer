@@ -2,17 +2,15 @@
 import React from "react";
 import FilePanelItem from "./FilePanelItem";
 
-const FilesPanel = () => {
+const FilesPanel = ({ data: { explorer } }) => {
+  const data = explorer;
+
   return (
     <div className="files-panel">
-      <FilePanelItem title="index.html" type="file" />
-      <FilePanelItem title="index.js" type="file" />
-      <FilePanelItem title="Gallery" type="folder" />
-      <FilePanelItem title="Documents" type="folder" />
-      <FilePanelItem title="index.html" type="file" />
-      <FilePanelItem title="main.jpg" type="file" />
-      <FilePanelItem title="Gallery" type="folder" />
-      <FilePanelItem title="index.js" type="file" />
+      {data.children &&
+        data.children.map(item => (
+          <FilePanelItem title={item.name} type={item.type} key={item.name} />
+        ))}
     </div>
   );
 };

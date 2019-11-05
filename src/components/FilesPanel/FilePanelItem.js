@@ -6,8 +6,16 @@ import * as Folder from "./../../images/folder.png";
 const FilePanelItem = ({ type, title }) => {
   const Img = <img src={type === "file" ? File : Folder} alt={type} />;
 
+  const handleDirectoryClick = () => {
+    return;
+  };
+
   return (
-    <a href="#" className={`files-panel__item ${type}`}>
+    <button
+      className={`files-panel__item ${type}`}
+      onDoubleClick={handleDirectoryClick}
+      disabled={type === "file" ? true : false}
+    >
       {type === "file" ? (
         <div className="files-panel__item-extension">
           {Img}
@@ -20,7 +28,7 @@ const FilePanelItem = ({ type, title }) => {
       )}
 
       <p className="files-panel__item-title">{title}</p>
-    </a>
+    </button>
   );
 };
 

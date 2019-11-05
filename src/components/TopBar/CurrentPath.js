@@ -1,11 +1,22 @@
 import React from "react";
 
-const CurrentPath = () => {
+const CurrentPath = ({ path }) => {
+  const mainPath = path.split("/");
+
   return (
     <div className="topbar__current-path">
       <p>
-        root/movies/
-        <span className="topbar__current-path--current">inception</span>
+        {mainPath.map((path, index) => {
+          if (index === mainPath.length - 1) {
+            return (
+              <span key={path} className="topbar__current-path--current">
+                {path}
+              </span>
+            );
+          } else {
+            return path + "/";
+          }
+        })}
       </p>
     </div>
   );

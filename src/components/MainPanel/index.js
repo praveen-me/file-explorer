@@ -2,11 +2,11 @@ import React from "react";
 import TopBar from "../TopBar";
 import FilesPanel from "../FilesPanel";
 
-const MainPanel = () => {
+const MainPanel = ({ data }) => {
   return (
     <div className="main-panel">
       <TopBar />
-      <FilesPanel />
+      <FilesPanel data={data} />
     </div>
   );
 };
