@@ -1,23 +1,18 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
+import CurrentPath from "./CurrentPath";
+import TopBarSearch from "./TopBarSearch";
 
 const TopBar = () => {
   return (
     <div className="topbar">
       <div className="topbar__left-section">
-        <button className="go-back">
+        <a herf="#" className="topbar__left-section-link go-back">
           <img src={require("../../images/up.png")} alt="Go Back" />
-        </button>
-        <div className="topbar__current-path">
-          <p>root/movies/inception</p>
-        </div>
+        </a>
+        <CurrentPath />
       </div>
-      <form className="topbar__search">
-        <input
-          type="text"
-          className="topbar__search-text"
-          placeholder="Search for anything"
-        />
-      </form>
+      <TopBarSearch />
     </div>
   );
 };
