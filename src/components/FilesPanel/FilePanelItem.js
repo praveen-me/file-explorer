@@ -4,8 +4,6 @@ import * as File from "./../../images/file.png";
 import * as Folder from "./../../images/folder.png";
 
 const FilePanelItem = ({ type, title }) => {
-  console.log(type, title);
-
   const Img = <img src={type === "file" ? File : Folder} alt={type} />;
 
   return (

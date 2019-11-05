@@ -1,25 +1,28 @@
-import React, {useState} from "react";
-import DropDown from "../utils/DropDown";
-import SideBarItem from "./SideBarItem";
+import React, { useState } from "react";
 import SubMenuList from "./SubMenuList";
+import SideBarSubMenuTitle from "./SideBarSubMenuTitle";
 
-const SideBarItemWithSubList = ({ title, expanded }) => {
-	const [isSubMenuOpen, setIsSubMennuOpen] = useState(true);
+const SideBarItemWithSubList = ({ name, data }) => {
+  const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
 
-	let Wrapper = ({ children }) => <>{children}</>;
+  let Wrapper = ({ children }) => <>{children}</>;
 
-	if (isSubMenuOpen) {
-		Wrapper = ({ children }) => <div className="sidebar__list-item">{children}</div>;
-	}
+  const handleToggleMenu = () => setIsSubMenuOpen(!isSubMenuOpen);
+
+  if (isSubMenuOpen) {
+    Wrapper = ({ children }) => (
+      <div className="sidebar__list-item">{children}</div>
+    );
+  }
 
   return (
     <Wrapper>
-			<SideBarItem title={title} isNestedMenu expand isOpen={isSubMenuOpen}/>
-      {
-				isSubMenuOpen && (
-					<SubMenuList />
-				)
-			}
+      <SideBarSubMenuTitle
+        name={name}
+        isOpen={isSubMenuOpen}
+        toggleMenu={handleToggleMenu}
+      />
+      {isSubMenuOpen && <SubMenuList data={data} />}
     </Wrapper>
   );
 };

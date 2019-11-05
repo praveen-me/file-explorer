@@ -1,12 +1,21 @@
 import React from "react";
-import SideBarItem from "./SideBarItem";
+import SideBarItemWithSubList from "./SideBarItemWithSubList";
+import SideBarSubListItem from "./SideBarSubListItem";
 
-const SubMenuList = () => {
+const SubMenuList = ({ data }) => {
   return (
     <div className="sidebar__list_sublist">
-      <SideBarItem isSubMenuItem title="Recordings" />
-      <SideBarItem isSubMenuItem title="Recordings" />
-      <SideBarItem isSubMenuItem title="Projects" />
+      {data.map((child, index) => {
+        return child.children && child.children.length ? (
+          <SideBarItemWithSubList
+            name={child.name}
+            data={child.children}
+            key={child.slug}
+          />
+        ) : (
+          <SideBarSubListItem name={child.name} key={child.slug + index} />
+        );
+      })}
     </div>
   );
 };
