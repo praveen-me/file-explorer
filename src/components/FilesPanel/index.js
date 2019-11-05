@@ -1,7 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import * as File from "./../../images/file.png";
-import * as Folder from "./../../images/folder.png";
 import FilePanelItem from "./FilePanelItem";
 
 const FilesPanel = () => {
