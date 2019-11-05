@@ -3,9 +3,45 @@
 	padding: $padding-normal * 2 $padding-normal * 4;
 	justify-content: space-between;
 	align-items: center;
+	font-family: $font;
 
 	&__left-section {
 		display: flex;
 		align-items: center;
+
+		&-link {
+			margin-right: $padding-normal + 10px;
+			display: inline-block;
+		}
+	}
+
+	&__current-path {
+		font-size: $size-medium;
+		color: $light-color-v2;
+		font-weight: $light;
+		&--current {
+			color: $dark-color-v1;
+		}
+	}
+
+	&__search {
+		box-sizing: border-box;
+
+		&-text {
+			padding: $padding-normal / 2;
+			border-radius: 5px;
+			text-align: center;
+			border: none;
+			border: 1px solid #dde0e4;
+			font-weight: 300;
+			font-size: $size-small-v2;
+			color: #afb2b6;
+
+			&::placeholder {
+				font-weight: 300;
+				font-size: $size-small-v2;
+				color: #afb2b6;
+			}
+		}
 	}
 }
