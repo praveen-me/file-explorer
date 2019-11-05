@@ -15,13 +15,18 @@
 		}
 	}
 
-	&__current-path {
+	&__current-path,
+	&__current-path_btn {
 		font-size: $size-medium;
 		color: $light-color-v2;
 		font-weight: $light;
 		&--current {
 			color: $dark-color-v1;
 		}
+
+		// &_btn {
+		// 	// border:
+		// }
 	}
 
 	&__search {
