@@ -1,10 +1,15 @@
 #root {
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-  min-height: 100vh;
+	display: grid;
+	grid-template-columns: 1fr 4fr;
+	min-height: 100vh;
 }
 
 // Reverses the dropdown
 .reverse-dropdown {
-  transform: rotateX(180deg);
+	transform: rotateX(180deg);
+}
+
+.btn {
+	border: none;
+	background: transparent;
 }

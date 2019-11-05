@@ -1,19 +1,28 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import CurrentPath from "./CurrentPath";
 import TopBarSearch from "./TopBarSearch";
+import { updatePath } from "../../store/actions/common.actions";
 
 const TopBar = () => {
   const currentPath = useSelector(state => state.currentPath);
+  const dispatch = useDispatch();
+
+  const handleGoBack = () => {
+    dispatch(updatePath(null, true, currentPath.split("/").length - 2));
+  };
 
   return (
     <div className="topbar">
       <div className="topbar__left-section">
         {currentPath !== "root" && (
-          <a herf="#" className="topbar__left-section-link go-back">
+          <button
+            onClick={handleGoBack}
+            className="topbar__left-section-link go-back btn"
+          >
             <img src={require("../../images/up.png")} alt="Go Back" />
-          </a>
+          </button>
         )}
         <CurrentPath path={currentPath} />
       </div>
