@@ -1,0 +1,91 @@
+{
+	"name": "Root",
+	"slug": "root",
+	"type": "folder",
+	"childrens": [
+		{
+			"name": "Apps",
+			"slug": "apps",
+			"type": "folder",
+			"author": "Praveen",
+			"createAt": "5 Nov, 2019",
+			"childrens": []
+		},
+		{
+			"name": "Pictures",
+			"slug": "pictures",
+			"type": "folder",
+			"author": "Praveen",
+			"createAt": "5 Nov, 2019",
+			"childrens": []
+		},
+		{
+			"name": "Videos",
+			"slug": "videos",
+			"type": "folder",
+			"author": "Praveen",
+			"createAt": "5 Nov, 2019",
+			"childrens": []
+		},
+		{
+			"name": "Documents",
+			"slug": "documents",
+			"type": "folder",
+			"author": "Praveen",
+			"createAt": "5 Nov, 2019",
+			"childrens": [
+				{
+					"name": "Work",
+					"slug": "work",
+					"type": "folder",
+					"author": "Praveen",
+					"createAt": "5 Nov, 2019",
+					"childrens": [
+						{
+							"name": "e.pdf",
+							"type": "file",
+							"author": "Praveen",
+							"createAt": "5 Nov, 2019",
+							"size": "1.2MB"
+						},
+						{
+							"name": "f.ts",
+							"type": "file",
+							"author": "Praveen",
+							"createAt": "5 Nov, 2019",
+							"size": "8kb"
+						}
+					]
+				},
+				{
+					"name": "c.pdf",
+					"type": "file",
+					"author": "Praveen",
+					"createAt": "5 Nov, 2019",
+					"size": "1.2MB"
+				},
+				{
+					"name": "d.docx",
+					"type": "file",
+					"author": "Praveen",
+					"createAt": "5 Nov, 2019",
+					"size": "1.2MB"
+				}
+			]
+		},
+		{
+			"name": "a.pdf",
+			"type": "file",
+			"author": "Praveen",
+			"createAt": "5 Nov, 2019",
+			"size": "1.2MB"
+		},
+		{
+			"name": "b.jpg",
+			"type": "file",
+			"author": "Praveen",
+			"createAt": "5 Nov, 2019",
+			"size": "200KB"
+		}
+	]
+}
