@@ -2,39 +2,19 @@
 import React from "react";
 import * as File from "./../../images/file.png";
 import * as Folder from "./../../images/folder.png";
+import FilePanelItem from "./FilePanelItem";
 
 const FilesPanel = () => {
   return (
     <div className="files-panel">
-      <a href="#" className="files-panel__item file">
-        <div className="files-panel__item-extension">
-          <img src={File} alt="File" />
-          <span className="files-panel__item-extension-name">html</span>
-        </div>
-        <p className="files-panel__item-title">index.html</p>
-      </a>
-      <a href="#" className="files-panel__item file">
-        <div className="files-panel__item-extension">
-          <img src={File} alt="File" />
-          <span className="files-panel__item-extension-name">html</span>
-        </div>
-        <p className="files-panel__item-title">index.html</p>
-      </a>
-      <a href="#" className="files-panel__item folder">
-        <img src={Folder} alt="File" />
-        <p className="files-panel__item-title">Task 1</p>
-      </a>
-      <a href="#" className="files-panel__item folder">
-        <img src={Folder} alt="File" />
-        <p className="files-panel__item-title">Task 2</p>
-      </a>
-      <a href="#" className="files-panel__item file">
-        <div className="files-panel__item-extension">
-          <img src={File} alt="File" />
-          <span className="files-panel__item-extension-name">html</span>
-        </div>
-        <p className="files-panel__item-title">index.html</p>
-      </a>
+      <FilePanelItem title="index.html" type="file" />
+      <FilePanelItem title="index.js" type="file" />
+      <FilePanelItem title="Gallery" type="folder" />
+      <FilePanelItem title="Documents" type="folder" />
+      <FilePanelItem title="index.html" type="file" />
+      <FilePanelItem title="main.jpg" type="file" />
+      <FilePanelItem title="Gallery" type="folder" />
+      <FilePanelItem title="index.js" type="file" />
     </div>
   );
 };
