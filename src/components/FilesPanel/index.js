@@ -4,24 +4,13 @@ import FilePanelItem from "./FilePanelItem";
 import AddItemBtn from "../utils/AddItemBtn";
 import AddItemPopup from "../PopUps/AddItemPopup";
 import PanelItemInfo from "../PopUps/PanelItemInfo";
-
-const getFilesPanelByPath = (data, path) => {
-  let mainData = data;
-
-  const pathParts = path.split("/").slice(1);
-  for (const part of pathParts) {
-    mainData = mainData.children.find(item => item.slug === part);
-  }
-  return mainData;
-};
+import { getDataByPath } from "../../utils";
 
 const FilesPanel = ({ data: { explorer, currentPath } }) => {
   const [isAddItemModalOpen, setIsAddItemPanelOpen] = useState(false);
 
   const data =
-    currentPath === "root"
-      ? explorer
-      : getFilesPanelByPath(explorer, currentPath);
+    currentPath === "root" ? explorer : getDataByPath(explorer, currentPath);
 
   const toggleAddItemModal = () => setIsAddItemPanelOpen(!isAddItemModalOpen);
 
