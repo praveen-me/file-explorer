@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import FilePanelItem from "./FilePanelItem";
+import AddItemBtn from "../utils/AddItemBtn";
 
 const getFilesPanelByPath = (data, path) => {
   let mainData = data;
@@ -29,6 +30,7 @@ const FilesPanel = ({ data: { explorer, currentPath } }) => {
             slug={item.slug || ""}
           />
         ))}
+      <AddItemBtn />
     </div>
   );
 };
