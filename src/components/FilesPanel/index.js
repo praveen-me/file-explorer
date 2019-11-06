@@ -17,14 +17,7 @@ const FilesPanel = ({ data: { explorer, currentPath } }) => {
   return (
     <div className="files-panel">
       {data.children &&
-        data.children.map(item => (
-          <FilePanelItem
-            title={item.name}
-            type={item.type}
-            key={item.name}
-            slug={item.slug || ""}
-          />
-        ))}
+        data.children.map(item => <FilePanelItem key={item.name} {...item} />)}
       <AddItemBtn openModal={toggleAddItemModal} />
       {isAddItemModalOpen && <AddItemPopup closeModal={toggleAddItemModal} />}
     </div>
