@@ -1,13 +1,15 @@
 .options {
+	background: #fff;
 	position: absolute;
 	display: flex;
 	flex-direction: column;
-	box-shadow: 0px 0px 2px 2px #ddd;
+	border: 1px solid #dde0e4;
 	width: 160px;
 	font-family: $font;
 	border-radius: 5px;
-	top: 10px;
-	right: 10px;
+	bottom: -90%;
+	left: 50%;
+	z-index: 10;
 
 	&__btn {
 		padding: $padding-normal $padding-normal / 2;
