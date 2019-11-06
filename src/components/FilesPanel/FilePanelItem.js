@@ -6,11 +6,12 @@ import PanelItemInfo from "../PopUps/PanelItemInfo";
 import PanelImage from "../utils/PanelImge";
 import OptionPopup from "../PopUps/OptionPopup";
 
-const FilePanelItem = ({ type, title, slug }) => {
+const FilePanelItem = props => {
   const [isOptionsModalOpen, setIsModalOptionsOpen] = useState(false);
   const [isItemInfoModalOpen, setIsItemInfoModalOpen] = useState(false);
 
   const dispatch = useDispatch();
+  const { type, name, slug = "" } = props;
 
   const handleDirectoryClick = () => {
     if (type === "file") return;
@@ -43,8 +44,8 @@ const FilePanelItem = ({ type, title, slug }) => {
         onContextMenu={handleRightClick}
         onClick={handleRightClick}
       >
-        <PanelImage type={type} title={title} />
-        <p className="files-panel__item-title">{title}</p>
+        <PanelImage type={type} title={name} />
+        <p className="files-panel__item-title">{name}</p>
       </button>
       {isOptionsModalOpen && (
         <OptionPopup
@@ -54,7 +55,7 @@ const FilePanelItem = ({ type, title, slug }) => {
         />
       )}
       {isItemInfoModalOpen && (
-        <PanelItemInfo toggleInfo={togglePanelInfoModal} />
+        <PanelItemInfo toggleInfo={togglePanelInfoModal} {...props} />
       )}
     </div>
   );

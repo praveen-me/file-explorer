@@ -3,7 +3,7 @@ import CloseBtn from "../utils/CloseBtn";
 import PanelImage from "../utils/PanelImge";
 import InfoPopupDetailItem from "./InfoPopupDetailItem";
 
-const PanelItemInfo = ({ toggleInfo }) => {
+const PanelItemInfo = ({ toggleInfo, name, size, author, createdAt, type }) => {
   return (
     <div className="overlay">
       <div className="panel-item-info modal">
@@ -14,12 +14,15 @@ const PanelItemInfo = ({ toggleInfo }) => {
           </button>
         </div>
         <div className="panel-item-info_wrapper">
-          <PanelImage type="folder" />
+          <PanelImage type={type} title={name} />
         </div>
         <div className="panel-item-info__details">
-          <InfoPopupDetailItem keyName="Name" value="index.html" />
-          <InfoPopupDetailItem keyName="Size" value="362kb" />
-          <InfoPopupDetailItem keyName="Author" value="Praveen" />
+          <InfoPopupDetailItem keyName="Name" value={name} />
+          <InfoPopupDetailItem keyName="Author" value={author} />
+          <InfoPopupDetailItem keyName="Created At" value={createdAt} />
+          {type === "file" && (
+            <InfoPopupDetailItem keyName="Size" value={size} />
+          )}
         </div>
       </div>
     </div>

@@ -8,7 +8,7 @@
 			"slug": "apps",
 			"type": "folder",
 			"author": "Praveen",
-			"createAt": "5 Nov, 2019",
+			"createdAt": "5 Nov, 2019",
 			"children": []
 		},
 		{
@@ -16,7 +16,7 @@
 			"slug": "pictures",
 			"type": "folder",
 			"author": "Praveen",
-			"createAt": "5 Nov, 2019",
+			"createdAt": "5 Nov, 2019",
 			"children": []
 		},
 		{
@@ -24,7 +24,7 @@
 			"slug": "videos",
 			"type": "folder",
 			"author": "Praveen",
-			"createAt": "5 Nov, 2019",
+			"createdAt": "5 Nov, 2019",
 			"children": []
 		},
 		{
@@ -32,27 +32,27 @@
 			"slug": "documents",
 			"type": "folder",
 			"author": "Praveen",
-			"createAt": "5 Nov, 2019",
+			"createdAt": "5 Nov, 2019",
 			"children": [
 				{
 					"name": "Work",
 					"slug": "work",
 					"type": "folder",
 					"author": "Praveen",
-					"createAt": "5 Nov, 2019",
+					"createdAt": "5 Nov, 2019",
 					"children": [
 						{
 							"name": "e.pdf",
 							"type": "file",
 							"author": "Praveen",
-							"createAt": "5 Nov, 2019",
+							"createdAt": "5 Nov, 2019",
 							"size": "1.2MB"
 						},
 						{
 							"name": "f.ts",
 							"type": "file",
 							"author": "Praveen",
-							"createAt": "5 Nov, 2019",
+							"createdAt": "5 Nov, 2019",
 							"size": "8kb"
 						}
 					]
@@ -61,14 +61,14 @@
 					"name": "c.pdf",
 					"type": "file",
 					"author": "Praveen",
-					"createAt": "5 Nov, 2019",
+					"createdAt": "5 Nov, 2019",
 					"size": "1.2MB"
 				},
 				{
 					"name": "d.docx",
 					"type": "file",
 					"author": "Praveen",
-					"createAt": "5 Nov, 2019",
+					"createdAt": "5 Nov, 2019",
 					"size": "1.2MB"
 				}
 			]
@@ -77,14 +77,14 @@
 			"name": "a.pdf",
 			"type": "file",
 			"author": "Praveen",
-			"createAt": "5 Nov, 2019",
+			"createdAt": "5 Nov, 2019",
 			"size": "1.2MB"
 		},
 		{
 			"name": "b.jpg",
 			"type": "file",
 			"author": "Praveen",
-			"createAt": "5 Nov, 2019",
+			"createdAt": "5 Nov, 2019",
 			"size": "200KB"
 		}
 	]
