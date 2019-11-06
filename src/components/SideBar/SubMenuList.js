@@ -1,6 +1,6 @@
 import React from "react";
 import SideBarItemWithSubList from "./SideBarItemWithSubList";
-import SideBarSubListItem from "./SideBarSubListItem";
+import SideBarItem from "./SideBarItem";
 
 const SubMenuList = ({ data }) => {
   return (
@@ -13,7 +13,11 @@ const SubMenuList = ({ data }) => {
             key={child.slug}
           />
         ) : (
-          <SideBarSubListItem name={child.name} key={child.slug + index} />
+          <SideBarItem
+            isSublistItem
+            name={child.name}
+            key={child.slug + index}
+          />
         );
       })}
     </div>
