@@ -4,11 +4,11 @@ import { useDispatch } from "react-redux";
 import * as File from "./../../images/file.png";
 import * as Folder from "./../../images/folder.png";
 import { updatePath } from "../../store/actions/common.actions";
+import PanelItemInfo from "../PopUps/PanelItemInfo";
+import PanelImage from "../utils/PanelImge";
 
 const FilePanelItem = ({ type, title, slug }) => {
   const dispatch = useDispatch();
-
-  const Img = <img src={type === "file" ? File : Folder} alt={type} />;
 
   const handleDirectoryClick = () => {
     if (slug) {
@@ -23,17 +23,7 @@ const FilePanelItem = ({ type, title, slug }) => {
       onDoubleClick={handleDirectoryClick}
       disabled={type === "file" ? true : false}
     >
-      {type === "file" ? (
-        <div className="files-panel__item-extension">
-          {Img}
-          <span className="files-panel__item-extension-name">
-            {title.split(".")[1]}
-          </span>
-        </div>
-      ) : (
-        <>{Img}</>
-      )}
-
+      <PanelImage type={type} title={title} />
       <p className="files-panel__item-title">{title}</p>
     </button>
   );

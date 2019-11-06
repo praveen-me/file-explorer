@@ -1,3 +1,31 @@
 @import './options';
 
+.modal {
+	padding: $padding-normal * 2;
+	box-shadow: 0px 0px 2px 2px #ddd;
+	position: absolute;
+	border-radius: 5px;
+	top: 15px;
+	left: 15px;
+	font-family: $font;
+
+	&__head-container {
+		height: auto;
+
+		h3 {
+			text-align: center;
+			margin: $margin-normal 0;
+			margin-top: 0;
+		}
+
+		.close-btn {
+			position: absolute;
+			right: 1rem;
+			top: 1.7rem;
+		}
+	}
+}
+
 @import './add-item';
+
+@import './item-info';

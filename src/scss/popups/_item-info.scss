@@ -1,0 +1,29 @@
+.panel-item-info {
+	width: 316px;
+	box-sizing: border-box;
+
+	h3 {
+		font-size: 18px;
+	}
+
+	&_wrapper {
+		margin: $margin-normal * 2 0;
+		text-align: center;
+	}
+
+	&__details-item {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 1rem;
+		margin: $margin-normal * 2 0;
+
+		span:nth-child(1) {
+			justify-self: end;
+			color: #2f363f;
+		}
+
+		span:nth-child(2) {
+			color: #81878c;
+		}
+	}
+}

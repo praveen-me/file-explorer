@@ -3,9 +3,9 @@ import CloseBtn from "../utils/CloseBtn";
 
 const AddItemPopup = () => {
   return (
-    <div className="add_item">
-      <div className="add_item__head-container">
-        <h3 className="add_item__head">Create New </h3>
+    <div className="add_item modal">
+      <div className="modal__head-container">
+        <h3 className="modal-head__head">Create New </h3>
         <CloseBtn />
       </div>
       <form className="add_item__form">
