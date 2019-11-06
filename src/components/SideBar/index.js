@@ -17,7 +17,11 @@ const SideBar = ({ data: { name, children } }) => {
                 key={child.slug}
               />
             ) : (
-              <SideBarItem name={child.name} key={child.toString() + index} />
+              <SideBarItem
+                name={child.name}
+                key={child.toString() + index}
+                type={child.type}
+              />
             );
           })}
         </div>

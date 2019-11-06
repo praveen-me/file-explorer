@@ -1,10 +1,28 @@
 import React from "react";
 
-const SideBarItem = ({ name }) => {
+const SideBarItem = ({ name, type, isSublistItem }) => {
+  let mainClassName = isSublistItem
+    ? "sidebar__list_sublist-item"
+    : "sidebar__list-item";
+
+  let Wrapper = ({ children }) => (
+    <div className={mainClassName}>{children}</div>
+  );
+
+  if (type === "folder") {
+    Wrapper = ({ children }) => (
+      <button className={`${mainClassName} btn`}>{children}</button>
+    );
+  }
+
   return (
-    <div className="sidebar__list-item">
-      <h4 className="sidebar__list_sublist-item-title">{name}</h4>
-    </div>
+    <Wrapper>
+      {isSublistItem ? (
+        <h3 className="sidebar__list-item_name">{name}</h3>
+      ) : (
+        <h4 className="sidebar__list-item_title">{name}</h4>
+      )}
+    </Wrapper>
   );
 };
 
