@@ -1,7 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
+import React, { useState } from "react";
 import FilePanelItem from "./FilePanelItem";
 import AddItemBtn from "../utils/AddItemBtn";
+import AddItemPopup from "../PopUps/AddItemPopup";
+import PanelItemInfo from "../PopUps/PanelItemInfo";
 
 const getFilesPanelByPath = (data, path) => {
   let mainData = data;
@@ -14,10 +16,14 @@ const getFilesPanelByPath = (data, path) => {
 };
 
 const FilesPanel = ({ data: { explorer, currentPath } }) => {
+  const [isAddItemModalOpen, setIsAddItemPanelOpen] = useState(false);
+
   const data =
     currentPath === "root"
       ? explorer
       : getFilesPanelByPath(explorer, currentPath);
+
+  const toggleAddItemModal = () => setIsAddItemPanelOpen(!isAddItemModalOpen);
 
   return (
     <div className="files-panel">
@@ -30,7 +36,8 @@ const FilesPanel = ({ data: { explorer, currentPath } }) => {
             slug={item.slug || ""}
           />
         ))}
-      <AddItemBtn />
+      <AddItemBtn openModal={toggleAddItemModal} />
+      {isAddItemModalOpen && <AddItemPopup closeModal={toggleAddItemModal} />}
     </div>
   );
 };
