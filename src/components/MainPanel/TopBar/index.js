@@ -3,7 +3,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import CurrentPath from "./CurrentPath";
 import TopBarSearch from "./TopBarSearch";
-import { updatePath } from "../../store/actions/common.actions";
+import { updatePath } from "../../../store/actions/common.actions";
 
 const TopBar = () => {
   const currentPath = useSelector(state => state.currentPath);
@@ -21,7 +21,7 @@ const TopBar = () => {
             onClick={handleGoBack}
             className="topbar__left-section-link go-back btn"
           >
-            <img src={require("../../images/up.png")} alt="Go Back" />
+            <img src={require("../../../images/up.png")} alt="Go Back" />
           </button>
         )}
         <CurrentPath path={currentPath} />

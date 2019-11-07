@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { updatePath } from "../../store/actions/common.actions";
-import PanelItemInfo from "../PopUps/PanelItemInfo";
-import PanelImage from "../utils/PanelImge";
-import OptionPopup from "../PopUps/OptionPopup";
-import { deleteExplorerItem } from "../../store/actions/explorer.action";
+import { updatePath } from "../../../store/actions/common.actions";
+import PanelItemInfo from "../../PopUps/PanelItemInfo";
+import PanelImage from "../../utils/PanelImge";
+import OptionPopup from "../../PopUps/OptionPopup";
+import { deleteExplorerItem } from "../../../store/actions/explorer.action";
 
 const FilePanelItem = props => {
   const [isOptionsModalOpen, setIsModalOptionsOpen] = useState(false);
