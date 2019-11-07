@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import { useDispatch } from "react-redux";
-import { updatePath } from "../../store/actions/common.actions";
+import { updatePath } from "../../../store/actions/common.actions";
 
 const CurrentPath = ({ path }) => {
   const dispatch = useDispatch();

@@ -12,8 +12,9 @@ const SideBarSubMenuTitle = ({
 }) => {
   const dispatch = useDispatch();
 
-  const handlePathUpdate = () => {
+  const handlePathUpdate = event => {
     dispatch(updatePath(fullPath, false, null, true));
+    event.stopPropagation();
   };
 
   return (

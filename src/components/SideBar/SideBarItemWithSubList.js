@@ -7,7 +7,10 @@ const SideBarItemWithSubList = ({ name, data, fullPath }) => {
 
   let Wrapper = ({ children }) => <>{children}</>;
 
-  const handleToggleMenu = () => setIsSubMenuOpen(!isSubMenuOpen);
+  const handleToggleMenu = event => {
+    setIsSubMenuOpen(!isSubMenuOpen);
+    event.stopPropagation();
+  };
 
   if (isSubMenuOpen) {
     Wrapper = ({ children }) => (
