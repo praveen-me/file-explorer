@@ -3,7 +3,6 @@ import * as File from "./../../images/file.png";
 import * as Folder from "./../../images/folder.png";
 
 const PanelImage = ({ type, title = "" }) => {
-  console.log(title, type);
   const Img = <img src={type === "file" ? File : Folder} alt={type} />;
 
   return type === "file" ? (
