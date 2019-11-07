@@ -16,6 +16,14 @@ const rootReducer = (state = initState, action) => {
   switch (action.type) {
     case UPDATE_CURRENT_PATH: {
       const { payload } = action;
+
+      if (payload.replacePath) {
+        return {
+          ...state,
+          currentPath: payload.path
+        };
+      }
+
       let path = state.currentPath;
 
       if (payload.removeLastPathPart) {
@@ -24,7 +32,7 @@ const rootReducer = (state = initState, action) => {
           .slice(0, payload.croppedIndex + 1)
           .join("/");
       } else {
-        path = `${path}/${payload.newPathPart}`;
+        path = `${path}/${payload.path}`;
       }
 
       return {

@@ -1,17 +1,34 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import DropDown from "../utils/DropDown";
+import { updatePath } from "../../store/actions/common.actions";
 
-const SideBarSubMenuTitle = ({ name, isOpen, toggleMenu }) => {
+const SideBarSubMenuTitle = ({
+  name,
+  isOpen,
+  toggleMenu,
+  isChildren,
+  fullPath
+}) => {
+  const dispatch = useDispatch();
+
+  const handlePathUpdate = () => {
+    dispatch(updatePath(fullPath, false, null, true));
+  };
+
   return (
     <div
       className={`sidebar__list-item ${
         isOpen ? "sidebar__list-item--expand" : ""
       } `}
-      onClick={toggleMenu}
+      onClick={handlePathUpdate}
     >
       <h3 className="sidebar__list-item_name">{name}</h3>
-
-      <DropDown className={isOpen ? "reverse-dropdown" : ""} />
+      {isChildren && (
+        <button className="btn" onClick={toggleMenu}>
+          <DropDown className={isOpen ? "reverse-dropdown" : ""} />
+        </button>
+      )}
     </div>
   );
 };
