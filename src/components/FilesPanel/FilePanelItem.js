@@ -5,6 +5,7 @@ import { updatePath } from "../../store/actions/common.actions";
 import PanelItemInfo from "../PopUps/PanelItemInfo";
 import PanelImage from "../utils/PanelImge";
 import OptionPopup from "../PopUps/OptionPopup";
+import { deleteExplorerItem } from "../../store/actions/explorer.action";
 
 const FilePanelItem = props => {
   const [isOptionsModalOpen, setIsModalOptionsOpen] = useState(false);
@@ -14,7 +15,6 @@ const FilePanelItem = props => {
   const { type, name, slug = "" } = props;
 
   const handleDirectoryClick = () => {
-    if (type === "file") return;
     if (slug) {
       dispatch(updatePath(slug));
     }
@@ -32,6 +32,21 @@ const FilePanelItem = props => {
 
   const togglePanelInfoModal = () =>
     setIsItemInfoModalOpen(!isItemInfoModalOpen);
+
+  const handleItemDelete = () => {
+    let identifier = name;
+
+    if (type === "folder") {
+      identifier = slug;
+    }
+
+    dispatch(
+      deleteExplorerItem({
+        type,
+        identifier
+      })
+    );
+  };
 
   return (
     <div
@@ -52,6 +67,8 @@ const FilePanelItem = props => {
           toggleInfo={togglePanelInfoModal}
           isInfoModalOpen={isItemInfoModalOpen}
           open={handleDirectoryClick}
+          type={type}
+          deleteItem={handleItemDelete}
         />
       )}
       {isItemInfoModalOpen && (
