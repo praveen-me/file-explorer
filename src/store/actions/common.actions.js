@@ -3,10 +3,11 @@ import { UPDATE_CURRENT_PATH } from "./../types";
 export const updatePath = (
   data,
   removeLastPathPart = false,
-  croppedIndex = null
+  croppedIndex = null,
+  replacePath = false
 ) => {
   let actionData = {
-    newPathPart: data,
+    path: data,
     removeLastPathPart: removeLastPathPart
   };
 
@@ -20,7 +21,8 @@ export const updatePath = (
   return {
     type: UPDATE_CURRENT_PATH,
     payload: {
-      ...actionData
+      ...actionData,
+      replacePath
     }
   };
 };

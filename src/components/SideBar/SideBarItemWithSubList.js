@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import SubMenuList from "./SubMenuList";
 import SideBarSubMenuTitle from "./SideBarSubMenuTitle";
 
-const SideBarItemWithSubList = ({ name, data }) => {
+const SideBarItemWithSubList = ({ name, data, fullPath }) => {
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
 
   let Wrapper = ({ children }) => <>{children}</>;
@@ -21,8 +21,12 @@ const SideBarItemWithSubList = ({ name, data }) => {
         name={name}
         isOpen={isSubMenuOpen}
         toggleMenu={handleToggleMenu}
+        isChildren={data.length > 0}
+        fullPath={fullPath}
       />
-      {isSubMenuOpen && <SubMenuList data={data} />}
+      {data.length > 0 && isSubMenuOpen && (
+        <SubMenuList data={data} fullPath={fullPath} />
+      )}
     </Wrapper>
   );
 };
