@@ -1,4 +1,6 @@
+/* eslint-disable no-restricted-globals */
 import React, { Fragment } from "react";
+import { withRouter } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { updatePath } from "../../../store/actions/common.actions";
 
@@ -40,4 +42,4 @@ const CurrentPath = ({ path, history }) => {
   );
 };
 
-export default CurrentPath;
+export default withRouter(CurrentPath);
