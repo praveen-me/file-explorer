@@ -1,12 +1,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from "react";
+import React, { useState, Suspense, lazy } from "react";
 import { withRouter } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { updatePath } from "../../../store/actions/common.actions";
-import PanelItemInfo from "../../PopUps/PanelItemInfo";
 import PanelImage from "../../utils/PanelImge";
-import OptionPopup from "../../PopUps/OptionPopup";
 import { deleteExplorerItem } from "../../../store/actions/explorer.action";
+const PanelItemInfo = lazy(() => import("../../PopUps/PanelItemInfo"));
+const OptionPopup = lazy(() => import("../../PopUps/OptionPopup"));
 
 const FilePanelItem = (props) => {
   const currentPath = useSelector((state) => state.currentPath);
@@ -16,6 +16,7 @@ const FilePanelItem = (props) => {
   const dispatch = useDispatch();
   const { type, name, slug = "" } = props;
 
+  // handles directory click
   const handleDirectoryClick = () => {
     if (slug) {
       dispatch(updatePath(slug));
@@ -24,6 +25,7 @@ const FilePanelItem = (props) => {
     return;
   };
 
+  // Handles Right Click on a particular item
   const handleRightClick = (e) => {
     e.preventDefault();
     if (e.type === "click") {
@@ -33,9 +35,11 @@ const FilePanelItem = (props) => {
     setIsModalOptionsOpen(true);
   };
 
+  // Toggle Panel Info Modal
   const togglePanelInfoModal = () =>
     setIsItemInfoModalOpen(!isItemInfoModalOpen);
 
+  // Dispatches Action for deleting item
   const handleItemDelete = () => {
     let identifier = name;
 
@@ -65,18 +69,20 @@ const FilePanelItem = (props) => {
         <PanelImage type={type} title={name} />
         <p className="files-panel__item-title">{name}</p>
       </button>
-      {isOptionsModalOpen && (
-        <OptionPopup
-          toggleInfo={togglePanelInfoModal}
-          isInfoModalOpen={isItemInfoModalOpen}
-          open={handleDirectoryClick}
-          type={type}
-          deleteItem={handleItemDelete}
-        />
-      )}
-      {isItemInfoModalOpen && (
-        <PanelItemInfo toggleInfo={togglePanelInfoModal} {...props} />
-      )}
+      <Suspense fallback={<p>Loading...</p>}>
+        {isOptionsModalOpen && (
+          <OptionPopup
+            toggleInfo={togglePanelInfoModal}
+            isInfoModalOpen={isItemInfoModalOpen}
+            open={handleDirectoryClick}
+            type={type}
+            deleteItem={handleItemDelete}
+          />
+        )}
+        {isItemInfoModalOpen && (
+          <PanelItemInfo toggleInfo={togglePanelInfoModal} {...props} />
+        )}
+      </Suspense>
     </div>
   );
 };

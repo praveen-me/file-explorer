@@ -5,20 +5,22 @@ import {
   ADD_EXPLORER_ITEM,
   DELETE_EXPLORER_ITEM
 } from "../types.js";
-import { getDataByPath } from "../../utils/index.js";
-const INIT_SLUG = "root";
+import { getDataByPath, INIT_SLUG } from "../../utils/index.js";
 
-// let itemData = null;
-// let infoDialogResponse = {
-//   reject: null,
-//   confirm: null
-// };
-
+// Initial State
 const initState = {
   explorer: INIT_DATA,
   currentPath: INIT_SLUG
 };
 
+/**
+ * Root Reducer: Deals with change in state according to action
+ *
+ * @param {Object} state State of whole application
+ * @param {Object} action Object required for changing state
+ *
+ * @returns {Object} New State
+ */
 const rootReducer = (state = initState, action) => {
   switch (action.type) {
     case UPDATE_CURRENT_PATH: {

@@ -4,6 +4,18 @@ import CloseBtn from "../utils/CloseBtn";
 import ItemTypeToggleBtn from "./ItemTypeToggleBtn";
 import { addExplorerItem } from "../../store/actions/explorer.action";
 
+const InputField = ({ name, placeholder, handleChange }) => {
+  return (
+    <input
+      name={name}
+      className="add_item__details-item"
+      placeholder={placeholder}
+      type="text"
+      onChange={handleChange}
+    />
+  );
+};
+
 const AddItemPopup = ({ closeModal }) => {
   const [itemData, setItemData] = useState({
     type: "folder",
@@ -13,7 +25,7 @@ const AddItemPopup = ({ closeModal }) => {
 
   const dispatch = useDispatch();
 
-  // Create createdAt when form is going to submit
+  // Handles syncing field values with the components state
   const handleChange = (event) => {
     setItemData({
       ...itemData,
@@ -21,6 +33,7 @@ const AddItemPopup = ({ closeModal }) => {
     });
   };
 
+  // Toggles panel item type
   const toggleItemType = (event, type) => {
     event.preventDefault();
     setItemData({
@@ -75,27 +88,21 @@ const AddItemPopup = ({ closeModal }) => {
             />
           </div>
           <section className="add_item__details">
-            <input
-              type="text"
-              className="add_item__details-item"
+            <InputField
               name="name"
               placeholder="Name"
-              onChange={handleChange}
+              handleChange={handleChange}
             />
-            <input
-              type="text"
-              className="add_item__details-item"
+            <InputField
               name="author"
               placeholder="Author"
-              onChange={handleChange}
+              handleChange={handleChange}
             />
             {itemData.type === "file" && (
-              <input
-                type="text"
-                className="add_item__details-item"
+              <InputField
                 name="size"
                 placeholder="Size"
-                onChange={handleChange}
+                handleChange={handleChange}
               />
             )}
           </section>
