@@ -1,4 +1,4 @@
-import { UPDATE_CURRENT_PATH } from "./../types";
+import { UPDATE_CURRENT_PATH, UPDATE_QUERY } from "./../types";
 
 /**
  * Updates the current path in state via various parameters
@@ -36,3 +36,10 @@ export const updatePath = (
     }
   };
 };
+
+export const updateQuery = (query) => ({
+  type: UPDATE_QUERY,
+  payload: {
+    query
+  }
+});

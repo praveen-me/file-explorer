@@ -10,6 +10,7 @@ const OptionPopup = lazy(() => import("../../PopUps/OptionPopup"));
 
 const FilePanelItem = (props) => {
   const currentPath = useSelector((state) => state.currentPath);
+
   const [isOptionsModalOpen, setIsModalOptionsOpen] = useState(false);
   const [isItemInfoModalOpen, setIsItemInfoModalOpen] = useState(false);
 

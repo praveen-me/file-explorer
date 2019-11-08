@@ -4,7 +4,8 @@ import {
   UPDATE_CURRENT_PATH,
   ADD_EXPLORER_ITEM,
   DELETE_EXPLORER_ITEM,
-  HANDLE_DUPLICATE_DATA
+  HANDLE_DUPLICATE_DATA,
+  UPDATE_QUERY
 } from "../types.js";
 import { getDataByPath, INIT_SLUG } from "../../utils/index.js";
 
@@ -21,7 +22,8 @@ const initState = {
   currentPath: INIT_SLUG,
   duplicatedItemData: {
     ...initDuplicateItemState
-  }
+  },
+  query: ""
 };
 
 /**
@@ -161,6 +163,13 @@ const rootReducer = (state = initState, action) => {
         duplicatedItemData: {
           ...initDuplicateItemState
         }
+      };
+    }
+
+    case UPDATE_QUERY: {
+      return {
+        ...state,
+        query: action.payload.query
       };
     }
 
