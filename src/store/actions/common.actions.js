@@ -37,6 +37,13 @@ export const updatePath = (
   };
 };
 
+/**
+ * Update query string to reducer
+ *
+ * @param {String} query Query String
+ *
+ * @returns {Object} Action Object
+ */
 export const updateQuery = (query) => ({
   type: UPDATE_QUERY,
   payload: {
