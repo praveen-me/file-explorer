@@ -1,13 +1,15 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { withRouter } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { updatePath } from "../../../store/actions/common.actions";
 import PanelItemInfo from "../../PopUps/PanelItemInfo";
 import PanelImage from "../../utils/PanelImge";
 import OptionPopup from "../../PopUps/OptionPopup";
 import { deleteExplorerItem } from "../../../store/actions/explorer.action";
 
-const FilePanelItem = props => {
+const FilePanelItem = (props) => {
+  const currentPath = useSelector((state) => state.currentPath);
   const [isOptionsModalOpen, setIsModalOptionsOpen] = useState(false);
   const [isItemInfoModalOpen, setIsItemInfoModalOpen] = useState(false);
 
@@ -17,11 +19,12 @@ const FilePanelItem = props => {
   const handleDirectoryClick = () => {
     if (slug) {
       dispatch(updatePath(slug));
+      props.history.push(currentPath.slice(4) + "/" + slug);
     }
     return;
   };
 
-  const handleRightClick = e => {
+  const handleRightClick = (e) => {
     e.preventDefault();
     if (e.type === "click") {
       setIsModalOptionsOpen(false);
@@ -78,4 +81,4 @@ const FilePanelItem = props => {
   );
 };
 
-export default FilePanelItem;
+export default withRouter(FilePanelItem);

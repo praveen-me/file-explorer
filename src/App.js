@@ -4,7 +4,7 @@ import SideBar from "./components/SideBar";
 import MainPanel from "./components/MainPanel";
 
 function App() {
-  const data = useSelector(state => state);
+  const data = useSelector((state) => state);
   return (
     <>
       <SideBar data={data.explorer} />

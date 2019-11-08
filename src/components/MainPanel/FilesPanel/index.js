@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import FilePanelItem from "./FilePanelItem";
 import AddItemBtn from "../../utils/AddItemBtn";
 import AddItemPopup from "../../PopUps/AddItemPopup";
-import PanelItemInfo from "../../PopUps/PanelItemInfo";
 import { getDataByPath } from "../../../utils";
 
 const FilesPanel = ({ data: { explorer, currentPath } }) => {
@@ -17,7 +16,9 @@ const FilesPanel = ({ data: { explorer, currentPath } }) => {
   return (
     <div className="files-panel">
       {data.children &&
-        data.children.map(item => <FilePanelItem key={item.name} {...item} />)}
+        data.children.map((item) => (
+          <FilePanelItem key={item.name} {...item} />
+        ))}
       <AddItemBtn openModal={toggleAddItemModal} />
       {isAddItemModalOpen && <AddItemPopup closeModal={toggleAddItemModal} />}
     </div>

@@ -2,12 +2,12 @@ import React, { Fragment } from "react";
 import { useDispatch } from "react-redux";
 import { updatePath } from "../../../store/actions/common.actions";
 
-const CurrentPath = ({ path }) => {
+const CurrentPath = ({ path, history }) => {
   const dispatch = useDispatch();
 
   const mainPath = path.split("/");
 
-  const handleUpdatePath = index => {
+  const handleUpdatePath = (index) => {
     dispatch(updatePath(null, true, index));
   };
 
