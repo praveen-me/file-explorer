@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 import INIT_DATA from "./../../dummy-data.json";
 import {
   UPDATE_CURRENT_PATH,
@@ -6,6 +7,12 @@ import {
 } from "../types.js";
 import { getDataByPath } from "../../utils/index.js";
 const INIT_SLUG = "root";
+
+// let itemData = null;
+// let infoDialogResponse = {
+//   reject: null,
+//   confirm: null
+// };
 
 const initState = {
   explorer: INIT_DATA,
@@ -45,7 +52,27 @@ const rootReducer = (state = initState, action) => {
       const { payload } = action;
       const explorerCopy = JSON.parse(JSON.stringify(state.explorer));
 
-      getDataByPath(explorerCopy, state.currentPath).children.push(payload);
+      let isItemAlreadyPresent = false;
+
+      let data = getDataByPath(explorerCopy, state.currentPath).children;
+
+      let index = data.findIndex((item) => {
+        let identifier = payload.type === "file" ? item.name : item.slug;
+        let matchValue = payload.type === "file" ? payload.name : payload.slug;
+        return identifier === matchValue;
+      });
+
+      if (index !== -1) {
+        isItemAlreadyPresent = true;
+      }
+
+      if (isItemAlreadyPresent) {
+        console.log("File/Folder already present");
+      }
+
+      if (!isItemAlreadyPresent) {
+        data.push(payload);
+      }
 
       return {
         ...state,
@@ -63,9 +90,9 @@ const rootReducer = (state = initState, action) => {
       let itemIndex;
 
       if (type === "file") {
-        itemIndex = data.children.findIndex(item => item.name === identifier);
+        itemIndex = data.children.findIndex((item) => item.name === identifier);
       } else {
-        itemIndex = data.children.findIndex(item => item.slug === identifier);
+        itemIndex = data.children.findIndex((item) => item.slug === identifier);
       }
 
       data.children.splice(itemIndex, 1);

@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 import React from "react";
 import { useDispatch } from "react-redux";
 import DropDown from "../utils/DropDown";
@@ -12,8 +13,15 @@ const SideBarSubMenuTitle = ({
 }) => {
   const dispatch = useDispatch();
 
-  const handlePathUpdate = event => {
+  const handlePathUpdate = (event) => {
     dispatch(updatePath(fullPath, false, null, true));
+    history.pushState(
+      {
+        urlPath: fullPath.slice(4)
+      },
+      name,
+      fullPath.slice(4)
+    );
     event.stopPropagation();
   };
 

@@ -14,7 +14,7 @@ const AddItemPopup = ({ closeModal }) => {
   const dispatch = useDispatch();
 
   // Create createdAt when form is going to submit
-  const handleChange = event => {
+  const handleChange = (event) => {
     setItemData({
       ...itemData,
       [event.target.name]: event.target.value
@@ -29,7 +29,7 @@ const AddItemPopup = ({ closeModal }) => {
     });
   };
 
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     event.preventDefault();
 
     if (itemData.type === "folder" && "size" in itemData) {
