@@ -1,0 +1,28 @@
+.confirm-duplicate {
+	background: #fff;
+	font-family: $font;
+
+	h3 {
+		font-size: 18px;
+	}
+
+	.modal__head-container {
+		margin: 1rem 0;
+	}
+
+	&__btn-container {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__btn {
+		background-color: $high-light-color;
+		color: #fff;
+		padding: $padding-normal / 2 $padding-normal;
+		border-radius: 5px;
+
+		&:hover {
+			background-color: #076db1;
+		}
+	}
+}

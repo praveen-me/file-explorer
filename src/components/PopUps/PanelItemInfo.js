@@ -1,7 +1,15 @@
 import React from "react";
 import CloseBtn from "../utils/CloseBtn";
 import PanelImage from "../utils/PanelImge";
-import InfoPopupDetailItem from "./InfoPopupDetailItem";
+
+const InfoPopupDetailItem = ({ keyName, value }) => {
+  return (
+    <div className="panel-item-info__details-item">
+      <span>{keyName}:</span>
+      <span className="panel-item-info__details-item-title">{value}</span>
+    </div>
+  );
+};
 
 const PanelItemInfo = ({ toggleInfo, name, size, author, createdAt, type }) => {
   return (

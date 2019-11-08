@@ -1,4 +1,8 @@
-import { ADD_EXPLORER_ITEM, DELETE_EXPLORER_ITEM } from "../types";
+import {
+  ADD_EXPLORER_ITEM,
+  DELETE_EXPLORER_ITEM,
+  HANDLE_DUPLICATE_DATA
+} from "../types";
 
 /**
  * Adds a new item in explorer
@@ -23,6 +27,13 @@ export const addExplorerItem = (data) => ({
  */
 export const deleteExplorerItem = (data) => ({
   type: DELETE_EXPLORER_ITEM,
+  payload: {
+    ...data
+  }
+});
+
+export const handleDuplicateData = (data) => ({
+  type: HANDLE_DUPLICATE_DATA,
   payload: {
     ...data
   }
