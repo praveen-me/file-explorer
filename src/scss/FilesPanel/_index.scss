@@ -10,9 +10,14 @@
 		border: none;
 		justify-self: center;
 		align-self: center;
-		padding: $margin-normal;
 		text-align: center;
 		border-radius: 5px;
+
+		.btn {
+			padding: $padding-normal;
+			display: block;
+			height: 100%;
+		}
 
 		&-extension {
 			position: relative;

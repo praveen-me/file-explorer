@@ -1,5 +1,4 @@
 /* eslint-disable no-restricted-globals */
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import CurrentPath from "./CurrentPath";

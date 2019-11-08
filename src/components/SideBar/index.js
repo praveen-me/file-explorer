@@ -8,12 +8,21 @@ import { INIT_SLUG } from "../../utils";
 const SideBar = ({ data: { name, children } }) => {
   const dispatch = useDispatch();
 
+  const updatePathToRoot = () => {
+    dispatch(updatePath(INIT_SLUG, false, null, true));
+    // eslint-disable-next-line no-restricted-globals
+    history.pushState(
+      {
+        urlPath: "/"
+      },
+      "Root",
+      "/"
+    );
+  };
+
   return (
     <div className="sidebar">
-      <button
-        className="btn"
-        onClick={() => dispatch(updatePath(INIT_SLUG, false, null, true))}
-      >
+      <button className="btn" onClick={updatePathToRoot}>
         <h2 className="sidebar__header">{name}</h2>
       </button>
 
