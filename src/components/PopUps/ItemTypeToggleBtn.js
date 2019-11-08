@@ -6,7 +6,7 @@ const ItemTypeToggleBtn = ({ active, toggleItemType, isFolder }) => {
       className={`add_item__toggle-btn btn ${
         active ? "add_item__toggle-btn--active" : ""
       }`}
-      onClick={e => toggleItemType(e, isFolder ? "folder" : "file")}
+      onClick={(e) => toggleItemType(e, isFolder ? "folder" : "file")}
     >
       {isFolder ? "Folder" : "File"}
     </button>

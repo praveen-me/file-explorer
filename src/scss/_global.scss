@@ -1,6 +1,6 @@
 #root {
 	display: grid;
-	grid-template-columns: 1fr 4fr;
+	grid-template-columns: minmax(286px, auto) 4fr;
 	min-height: 100vh;
 }
 

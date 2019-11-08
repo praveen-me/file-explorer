@@ -5,13 +5,12 @@ import SideBarSubMenuTitle from "./SideBarSubMenuTitle";
 const SideBarItemWithSubList = ({ name, data, fullPath }) => {
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
 
-  let Wrapper = ({ children }) => <>{children}</>;
-
-  const handleToggleMenu = event => {
+  const handleToggleMenu = (event) => {
     setIsSubMenuOpen(!isSubMenuOpen);
     event.stopPropagation();
   };
 
+  let Wrapper = ({ children }) => <>{children}</>;
   if (isSubMenuOpen) {
     Wrapper = ({ children }) => (
       <div className="sidebar__list-item">{children}</div>

@@ -9,12 +9,6 @@ const SideBarItem = ({ name, type, isSublistItem }) => {
     <div className={mainClassName}>{children}</div>
   );
 
-  if (type === "folder") {
-    Wrapper = ({ children }) => (
-      <button className={`${mainClassName} btn`}>{children}</button>
-    );
-  }
-
   return (
     <Wrapper>
       {isSublistItem ? (

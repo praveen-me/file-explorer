@@ -3,16 +3,16 @@ import { useDispatch } from "react-redux";
 import SideBarItem from "./SideBarItem";
 import SideBarItemWithSubList from "./SideBarItemWithSubList";
 import { updatePath } from "../../store/actions/common.actions";
+import { INIT_SLUG } from "../../utils";
 
 const SideBar = ({ data: { name, children } }) => {
-  const INIT_PATH = "root";
   const dispatch = useDispatch();
 
   return (
     <div className="sidebar">
       <button
         className="btn"
-        onClick={() => dispatch(updatePath("root", false, null, true))}
+        onClick={() => dispatch(updatePath(INIT_SLUG, false, null, true))}
       >
         <h2 className="sidebar__header">{name}</h2>
       </button>
@@ -25,12 +25,12 @@ const SideBar = ({ data: { name, children } }) => {
                 name={child.name}
                 data={child.children}
                 key={child.slug}
-                fullPath={`${INIT_PATH}/${child.slug}`}
+                fullPath={`${INIT_SLUG}/${child.slug}`}
               />
             ) : (
               <SideBarItem
                 name={child.name}
-                key={child.toString() + index}
+                key={name + index}
                 type={child.type}
               />
             );

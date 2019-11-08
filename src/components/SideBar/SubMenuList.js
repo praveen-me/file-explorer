@@ -5,7 +5,7 @@ import SideBarItem from "./SideBarItem";
 const SubMenuList = ({ data, fullPath }) => {
   return (
     <div className="sidebar__list_sublist">
-      {data.map(child => {
+      {data.map((child) => {
         return child.children ? (
           <SideBarItemWithSubList
             name={child.name}

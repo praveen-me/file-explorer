@@ -20,11 +20,11 @@ const MainPanel = ({ data }) => {
       <Router>
         <Route
           path="*"
-          render={() => {
+          render={(props) => {
             return (
               <>
-                <TopBar />
-                <FilesPanel data={data} />
+                <TopBar {...props} />
+                <FilesPanel data={data} {...props} />
               </>
             );
           }}

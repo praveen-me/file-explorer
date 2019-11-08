@@ -1,3 +1,5 @@
+export const INIT_SLUG = "root";
+
 export const getDataByPath = (data, path) => {
   if (path === "root") {
     return data;
@@ -7,7 +9,7 @@ export const getDataByPath = (data, path) => {
 
   const pathParts = path.split("/").slice(1);
   for (const part of pathParts) {
-    mainData = mainData.children.find(item => item.slug === part);
+    mainData = mainData.children.find((item) => item.slug === part);
   }
   return mainData;
 };

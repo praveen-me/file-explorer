@@ -1,5 +1,20 @@
 import React from "react";
 
+const Button = ({
+  title,
+  handleClick,
+  isDisabled = false,
+  additionalClasses = []
+}) => (
+  <button
+    className={`options__btn btn ${additionalClasses.join(" ")}`}
+    onClick={handleClick}
+    disabled={isDisabled}
+  >
+    {title}
+  </button>
+);
+
 const OptionPopup = ({
   open,
   toggleInfo,
@@ -14,22 +29,13 @@ const OptionPopup = ({
         zIndex: isInfoModalOpen ? 0 : 15
       }}
     >
-      <button
-        className="options__btn btn"
-        onClick={open}
-        disabled={type === "file"}
-      >
-        Open
-      </button>
-      <button className="options__btn btn" onClick={toggleInfo}>
-        Get Info
-      </button>
-      <button
-        className="options__btn options__btn--delete btn"
-        onClick={deleteItem}
-      >
-        Delete
-      </button>
+      <Button title="Open" handleClick={open} isDisabled={type === "file"} />
+      <Button title="Get Info" handleClick={toggleInfo} />
+      <Button
+        title="Delete"
+        handleClick={deleteItem}
+        additionalClasses={["options__btn--delete"]}
+      />
     </div>
   );
 };

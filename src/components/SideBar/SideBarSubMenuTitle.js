@@ -3,6 +3,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import DropDown from "../utils/DropDown";
 import { updatePath } from "../../store/actions/common.actions";
+import { INIT_SLUG } from "../../utils";
 
 const SideBarSubMenuTitle = ({
   name,
@@ -13,23 +14,27 @@ const SideBarSubMenuTitle = ({
 }) => {
   const dispatch = useDispatch();
 
+  /**
+   * Dispatches action for updating path and pushing url to current one
+   * @param {Object} event Event Object
+   */
   const handlePathUpdate = (event) => {
     dispatch(updatePath(fullPath, false, null, true));
     history.pushState(
       {
-        urlPath: fullPath.slice(4)
+        urlPath: fullPath.slice(INIT_SLUG.length)
       },
       name,
-      fullPath.slice(4)
+      fullPath.slice(INIT_SLUG.length)
     );
     event.stopPropagation();
   };
 
   return (
-    <div
+    <button
       className={`sidebar__list-item ${
         isOpen ? "sidebar__list-item--expand" : ""
-      } `}
+      } btn`}
       onClick={handlePathUpdate}
     >
       <h3 className="sidebar__list-item_name">{name}</h3>
@@ -38,7 +43,7 @@ const SideBarSubMenuTitle = ({
           <DropDown className={isOpen ? "reverse-dropdown" : ""} />
         </button>
       )}
-    </div>
+    </button>
   );
 };
 
