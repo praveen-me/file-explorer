@@ -39,9 +39,9 @@ const SideBarSubMenuTitle = ({
     >
       <h3 className="sidebar__list-item_name">{name}</h3>
       {isChildren && (
-        <button className="btn" onClick={toggleMenu}>
+        <div className="btn" onClick={toggleMenu}>
           <DropDown className={isOpen ? "reverse-dropdown" : ""} />
-        </button>
+        </div>
       )}
     </button>
   );

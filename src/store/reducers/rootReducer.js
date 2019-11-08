@@ -3,14 +3,25 @@ import INIT_DATA from "./../../dummy-data.json";
 import {
   UPDATE_CURRENT_PATH,
   ADD_EXPLORER_ITEM,
-  DELETE_EXPLORER_ITEM
+  DELETE_EXPLORER_ITEM,
+  HANDLE_DUPLICATE_DATA
 } from "../types.js";
 import { getDataByPath, INIT_SLUG } from "../../utils/index.js";
+
+let itemData = null;
+
+const initDuplicateItemState = {
+  name: "",
+  isAlreadyExistsInExplorer: false
+};
 
 // Initial State
 const initState = {
   explorer: INIT_DATA,
-  currentPath: INIT_SLUG
+  currentPath: INIT_SLUG,
+  duplicatedItemData: {
+    ...initDuplicateItemState
+  }
 };
 
 /**
@@ -54,7 +65,7 @@ const rootReducer = (state = initState, action) => {
       const { payload } = action;
       const explorerCopy = JSON.parse(JSON.stringify(state.explorer));
 
-      let isItemAlreadyPresent = false;
+      let existedItem = state.duplicatedItemData;
 
       let data = getDataByPath(explorerCopy, state.currentPath).children;
 
@@ -65,14 +76,22 @@ const rootReducer = (state = initState, action) => {
       });
 
       if (index !== -1) {
-        isItemAlreadyPresent = true;
+        existedItem.isAlreadyExistsInExplorer = true;
       }
 
-      if (isItemAlreadyPresent) {
-        console.log("File/Folder already present");
+      if (existedItem.isAlreadyExistsInExplorer) {
+        itemData = payload;
+
+        return {
+          ...state,
+          duplicatedItemData: {
+            name: payload.name,
+            isAlreadyExistsInExplorer: existedItem.isAlreadyExistsInExplorer
+          }
+        };
       }
 
-      if (!isItemAlreadyPresent) {
+      if (!existedItem.isAlreadyExistsInExplorer) {
         data.push(payload);
       }
 
@@ -102,6 +121,34 @@ const rootReducer = (state = initState, action) => {
       return {
         ...state,
         explorer: explorerCopy
+      };
+    }
+
+    case HANDLE_DUPLICATE_DATA: {
+      const { payload } = action;
+      const explorerCopy = JSON.parse(JSON.stringify(state.explorer));
+
+      if (payload.shouldExistedDataReplace) {
+        let data = getDataByPath(explorerCopy, state.currentPath).children;
+
+        let index = data.findIndex((item) => {
+          let identifier = itemData.type === "file" ? item.name : item.slug;
+          let matchValue =
+            itemData.type === "file" ? itemData.name : itemData.slug;
+          return identifier === matchValue;
+        });
+
+        data.splice(index, 1, itemData);
+      }
+
+      itemData = null;
+
+      return {
+        ...state,
+        explorer: explorerCopy,
+        duplicatedItemData: {
+          ...initDuplicateItemState
+        }
       };
     }
 
