@@ -32,6 +32,13 @@ export const deleteExplorerItem = (data) => ({
   }
 });
 
+/**
+ * Handles adding a duplicate item in a directory
+ *
+ * @param {*} data Data for deleting item in file explorer
+ *
+ * @returns {Object} A new action object
+ */
 export const handleDuplicateData = (data) => ({
   type: HANDLE_DUPLICATE_DATA,
   payload: {

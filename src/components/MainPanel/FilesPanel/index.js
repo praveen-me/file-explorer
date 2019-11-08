@@ -25,9 +25,6 @@ const FilesPanel = ({ data: { explorer, currentPath } }) => {
     );
   }
 
-  // const data =
-  // currentPath === INIT_SLUG ? explorer : getDataByPath(explorer, currentPath);
-
   // Toggles Add Item Modal
   const toggleAddItemModal = () => setIsAddItemPanelOpen(!isAddItemModalOpen);
 
