@@ -33,6 +33,31 @@ const initState = {
  * @returns {Object} New State
  */
 const rootReducer = (state = initState, action) => {
+  /**
+   * Get and searches data from an data source, Also gets the index of the current item in data source
+   * @param {Object} explorerData Main Data Source
+   * @param {Object} currentItemData Current Items data
+   *
+   * @returns {Object} Containing Index and nearest data source
+   */
+  const getAndSearchItemByPath = (explorerData, currentItemData) => {
+    let data = getDataByPath(explorerData, state.currentPath).children;
+
+    let index = data.findIndex((item) => {
+      let identifier = currentItemData.type === "file" ? item.name : item.slug;
+      let matchValue =
+        currentItemData.type === "file"
+          ? currentItemData.name
+          : currentItemData.slug;
+      return identifier === matchValue;
+    });
+
+    return {
+      data,
+      index
+    };
+  };
+
   switch (action.type) {
     case UPDATE_CURRENT_PATH: {
       const { payload } = action;
@@ -63,17 +88,11 @@ const rootReducer = (state = initState, action) => {
 
     case ADD_EXPLORER_ITEM: {
       const { payload } = action;
-      const explorerCopy = JSON.parse(JSON.stringify(state.explorer));
-
       let existedItem = state.duplicatedItemData;
 
-      let data = getDataByPath(explorerCopy, state.currentPath).children;
+      const explorerCopy = JSON.parse(JSON.stringify(state.explorer));
 
-      let index = data.findIndex((item) => {
-        let identifier = payload.type === "file" ? item.name : item.slug;
-        let matchValue = payload.type === "file" ? payload.name : payload.slug;
-        return identifier === matchValue;
-      });
+      const { data, index } = getAndSearchItemByPath(explorerCopy, payload);
 
       if (index !== -1) {
         existedItem.isAlreadyExistsInExplorer = true;
@@ -129,14 +148,7 @@ const rootReducer = (state = initState, action) => {
       const explorerCopy = JSON.parse(JSON.stringify(state.explorer));
 
       if (payload.shouldExistedDataReplace) {
-        let data = getDataByPath(explorerCopy, state.currentPath).children;
-
-        let index = data.findIndex((item) => {
-          let identifier = itemData.type === "file" ? item.name : item.slug;
-          let matchValue =
-            itemData.type === "file" ? itemData.name : itemData.slug;
-          return identifier === matchValue;
-        });
+        const { data, index } = getAndSearchItemByPath(explorerCopy, itemData);
 
         data.splice(index, 1, itemData);
       }

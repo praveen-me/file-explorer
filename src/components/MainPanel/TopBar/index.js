@@ -11,8 +11,13 @@ const TopBar = (props) => {
   const dispatch = useDispatch();
 
   const handleGoBack = () => {
-    dispatch(updatePath(null, true, currentPath.split("/").length - 2));
-    props.history.goBack();
+    let pathArr = currentPath.split("/");
+
+    let path = pathArr.slice(1, pathArr.length - 1).join("/");
+
+    props.history.push(path.length ? `/${path}` : "/");
+
+    dispatch(updatePath(null, true, pathArr.length - 2));
   };
 
   return (

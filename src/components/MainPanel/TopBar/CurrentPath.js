@@ -10,6 +10,10 @@ const CurrentPath = ({ path, history }) => {
   const mainPath = path.split("/");
 
   const handleUpdatePath = (index) => {
+    let path = mainPath.slice(1, index + 1).join("/");
+
+    history.push(path.length ? `/${path}` : "/");
+
     dispatch(updatePath(null, true, index));
   };
 
