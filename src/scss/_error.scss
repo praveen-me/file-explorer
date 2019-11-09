@@ -1,0 +1,16 @@
+.err-page {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	width: 100%;
+
+	a {
+		font-family: $font;
+		font-size: 1.5rem;
+		display: block;
+		margin: 1rem 0;
+		color: #03a9f4;
+	}
+}
