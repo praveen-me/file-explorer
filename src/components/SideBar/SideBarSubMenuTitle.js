@@ -33,8 +33,10 @@ const SideBarSubMenuTitle = ({
   return (
     <button
       className={`sidebar__list-item ${
-        isOpen ? "sidebar__list-item--expand" : ""
-      } btn`}
+        location.pathname === fullPath.slice(INIT_SLUG.length)
+          ? "sidebar__list-item--active"
+          : ""
+      } ${isOpen ? "sidebar__list-item--expand" : ""} btn`}
       onClick={handlePathUpdate}
     >
       <h3 className="sidebar__list-item_name">{name}</h3>
