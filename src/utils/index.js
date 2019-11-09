@@ -1,5 +1,12 @@
 export const INIT_SLUG = "root";
-
+/**
+ * Generate new data source according to the path
+ *
+ * @param {Object} data Old data Source
+ * @param {String} path Path to make new data source
+ *
+ * @returns {Object} New Data Source
+ */
 export const getDataByPath = (data, path) => {
   if (path === "root") {
     return data;

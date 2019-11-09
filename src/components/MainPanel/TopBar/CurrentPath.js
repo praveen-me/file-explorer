@@ -9,6 +9,7 @@ const CurrentPath = ({ path, history }) => {
 
   const mainPath = path.split("/");
 
+  // Updating path according to index
   const handleUpdatePath = (index) => {
     let path = mainPath.slice(1, index + 1).join("/");
 

@@ -5,6 +5,7 @@ import SideBarSubMenuTitle from "./SideBarSubMenuTitle";
 const SideBarItemWithSubList = ({ name, data, fullPath }) => {
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
 
+  // Toggles Submenu
   const handleToggleMenu = (event) => {
     setIsSubMenuOpen(!isSubMenuOpen);
     event.stopPropagation();

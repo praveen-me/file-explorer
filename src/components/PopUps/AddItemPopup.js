@@ -42,15 +42,18 @@ const AddItemPopup = ({ closeModal }) => {
     });
   };
 
+  // Handles form for adding item to explorer
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    // Deleting unnecessary properties according to the folder and files
     if (itemData.type === "folder" && "size" in itemData) {
       delete itemData.size;
     } else if (itemData.type === "file" && "slug" in itemData) {
       delete itemData.slug;
     }
 
+    // Generating necessary properties if item is a folder
     if (itemData.type === "folder") {
       itemData.slug = itemData.name
         .toLowerCase()
