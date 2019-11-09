@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 
+// Component for handling error UI.
 const ErrorUI = () => {
+  // Setting display to "flex" from "grid" when Error Boundary appears
   const rootElm = document.getElementById("root");
   rootElm.style.display = "flex";
 
@@ -23,6 +25,7 @@ class ErrorBoundary extends Component {
     };
   }
 
+  // When Error boundary caches object on the behalf of current updated state
   static getDerivedStateFromError(error) {
     return {
       hasError: true

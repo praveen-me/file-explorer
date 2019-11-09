@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { updatePath } from "../../../store/actions/common.actions";
 import PanelImage from "../../utils/PanelImge";
 import { deleteExplorerItem } from "../../../store/actions/explorer.action";
+
+// lazy loaded Components
 const PanelItemInfo = lazy(() => import("../../PopUps/PanelItemInfo"));
 const OptionPopup = lazy(() => import("../../PopUps/OptionPopup"));
 
@@ -58,7 +60,7 @@ const FilePanelItem = (props) => {
 
   return (
     <div
-      style={{ position: isOptionsModalOpen ? "relative" : "static" }}
+      style={{ position: isOptionsModalOpen ? "relative" : "static" }} // Setting position according to the modal state
       className={`files-panel__item ${type}`}
     >
       <button
@@ -70,6 +72,7 @@ const FilePanelItem = (props) => {
         <PanelImage type={type} title={name} />
         <p className="files-panel__item-title">{name}</p>
       </button>
+      {/* Doing code splitting and load lazy loaded component */}
       <Suspense fallback={<p>Loading...</p>}>
         {isOptionsModalOpen && (
           <OptionPopup

@@ -9,6 +9,7 @@ const TopBar = (props) => {
   const currentPath = useSelector((state) => state.currentPath);
   const dispatch = useDispatch();
 
+  // Handling Go back
   const handleGoBack = () => {
     let pathArr = currentPath.split("/");
 

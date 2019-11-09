@@ -8,6 +8,7 @@ import { INIT_SLUG } from "../../utils";
 const SideBar = ({ data: { name, children } }) => {
   const dispatch = useDispatch();
 
+  // Updating Initial Path
   const updatePathToRoot = () => {
     dispatch(updatePath(INIT_SLUG, false, null, true));
     // eslint-disable-next-line no-restricted-globals

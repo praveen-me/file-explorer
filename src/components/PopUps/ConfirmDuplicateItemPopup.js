@@ -5,6 +5,7 @@ import { handleDuplicateData } from "../../store/actions/explorer.action";
 const ConfirmDuplicateItemPopup = ({ data }) => {
   const dispatch = useDispatch();
 
+  // Close Modal
   const closeModal = (event, isReplaced) => {
     event.preventDefault();
     dispatch(

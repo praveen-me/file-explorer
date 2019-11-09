@@ -9,6 +9,7 @@ import { updatePath } from "../../store/actions/common.actions";
 const MainPanel = ({ data }) => {
   const dispatch = useDispatch();
 
+  // Setting path when the page loads
   useEffect(() => {
     if (location.pathname !== "/") {
       dispatch(updatePath(`root${location.pathname}`, false, null, true));
