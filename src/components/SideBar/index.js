@@ -28,7 +28,7 @@ const SideBar = ({ data: { name, children } }) => {
 
       {children.length && (
         <div className="sidebar__list">
-          {children.map((child, index) => {
+          {children.map((child) => {
             return child.children ? (
               <SideBarItemWithSubList
                 name={child.name}
@@ -39,7 +39,7 @@ const SideBar = ({ data: { name, children } }) => {
             ) : (
               <SideBarItem
                 name={child.name}
-                key={name + index}
+                key={child.name}
                 type={child.type}
               />
             );
